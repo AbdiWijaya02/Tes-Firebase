@@ -1,0 +1,135 @@
+<!-- firebase.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Sensor 3D Printer</title>
+    <script type="module" defer src="firebaseApp.js"></script>
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        .sensor-box {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .sensor-box:hover {
+            transform: scale(1.05);
+        }
+        .sensor-box h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .sensor-box p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .update-time {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .col-md-4 {
+            flex: 0 0 30%;
+            max-width: 30%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+</html>
+<body>
+    <h1>Monitoring Sensor 3D Printer</h1>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Tegangan</h3>
+                    <p id="tegangan"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Arus</h3>
+                    <p id="arus"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Daya</h3>
+                    <p id="daya"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Energi</h3>
+                    <p id="energi"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Suhu</h3>
+                    <p id="suhu"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Kelembapan</h3>
+                    <p id="kelembapan"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Filament Digunakan</h3>
+                    <p id="used"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sensor-box">
+                    <h3>Sisa Filament</h3>
+                    <p id="remaining"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update time -->
+        <div class="text-center update-time">
+            <p id="last-update">Last update: -</p>
+        </div>
+
+        <div style="text-align: center;">
+            <button id="toggleButton">Toggle SSR</button>
+            <p id="ssrStatus">SSR Status: </p>
+        </div>
+    </div>
+</body>
+</html>
